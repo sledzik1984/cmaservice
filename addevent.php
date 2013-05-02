@@ -85,12 +85,12 @@ echo "<tr>\n";
 
 
 echo "<td>Magazynier: </td>\n";
-echo "<td><input type=\"text\" name=\"addr\"></td>\n";
+echo "<td><input type=\"text\" name=\"manager\"></td>\n";
 echo "</tr>\n";
 
 echo "</table>\n";
 
-echo "<a href=\"javascript:document.addservice.submit();\" accesskey=\"S\">Zapisz <img src=\"img/save.gif\"></a>\n";
+echo "<a href=\"javascript:document.event.submit();\" accesskey=\"S\">Zapisz <img src=\"img/save.gif\"></a>\n";
 echo "<a href=\"rentalclientslist.php\"> Anuluj <img src=\"img/cancel.gif\"></a>\n";
 echo "<td>\n";
 

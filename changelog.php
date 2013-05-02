@@ -21,7 +21,7 @@ echo "<div class=\"mainmargin\">\n";
 echo "# 2011-10-08 20:30 Poprawki kodu odpowiedzialnego za dodawanie urządzeń do bazy, dodanie możliwości filtrowania wg. działów, możliwośc dodania działu przy dodawaniu urządzenia.\n";
 echo "<br># 2013-05-01 18:00 Ponowne rozpoczęcie prac nad aplikacją.\n";
 echo "<br># 2013-05-01 22:00 Dodanie obsługi jQuery (Tooltipy, autodopełnianie).\n";
-echo "<br># 2013-05-02 21:00 Dodana możliwość kliknięcia na urządzenie w historii.\n";
+echo "<br># 2013-05-02 21:00 Dodana możliwość kliknięcia na urządzenie w historii, dodanie do Github.\n";
 
 
 echo "</div>\n";
