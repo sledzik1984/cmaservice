@@ -14,7 +14,7 @@ echo "\t<body>\n";
 echo "<script type=\"text/javascript\" language=\"JavaScript\" src=\"inc/overlib.js\"></script>\n";
 echo "<div class=\"mainmargin\">\n";
 
-echo "<form name=\"addservice\"  id=\"addservice\" method=\"POST\" action=\"addrentalclient_f.php\">\n";
+echo "<form name=\"addclient\"  id=\"addservice\" method=\"POST\" action=\"addrentalclient_f.php\">\n";
 echo "<input type=\"submit\" class=\"hiddenbtn\">\n";
 
 
@@ -78,7 +78,7 @@ echo "</tr>\n";
 
 echo "</table>\n";
 
-echo "<a href=\"javascript:document.addservice.submit();\" accesskey=\"S\">Zapisz <img src=\"img/save.gif\"></a>\n";
+echo "<a href=\"javascript:document.addclient.submit();\" accesskey=\"S\">Zapisz <img src=\"img/save.gif\"></a>\n";
 echo "<a href=\"rentalclientslist.php\"> Anuluj <img src=\"img/cancel.gif\"></a>\n";
 echo "<td>\n";
 
