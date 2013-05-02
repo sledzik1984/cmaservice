@@ -99,6 +99,7 @@ while ($history_row = mysql_fetch_assoc($history_result)) {
     $sid = $history_row["service_id"];
     $user = $history_row["user"];
     $rental_id = $history_row["rental_id"];
+    $event_id = $history_row["event_id"];
     
     echo "<tr class=\"lucid\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
     echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&b=".$fixture_id."';\"    class=\"fleft\" valign=\"top\">\n";
@@ -186,6 +187,32 @@ while ($history_row = mysql_fetch_assoc($history_result)) {
 	echo "Usunięcie ze stanu magazynowego <img class=\"help\" src=\"img/help.png\" title=\"".$deleted_comment."\">";
 	break;
     
+    
+    case 13: 
+
+	$query_event = "SELECT * FROM `events` WHERE `id` = '$event_id' LIMIT 1";
+	$result_event = mysql_query($query_event);
+	
+	while ($row_event = mysql_fetch_assoc($result_event)) {
+	
+	$event_who = $row_event["who"];
+	
+	$who_q = "SELECT * FROM `rental_clients` WHERE `id` = '$event_who' LIMIT 1";
+	$who_r = mysql_query($who_q);
+	
+	while ($row_who = mysql_fetch_assoc($who_r)) {
+	
+	$event_who_who = $row_who["company"];
+	
+	
+	}
+	
+	
+	}
+
+
+	echo "Utworzono sztukę dla " .$event_who_who;
+	break;
     
     }
     

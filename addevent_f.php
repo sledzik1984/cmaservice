@@ -53,9 +53,20 @@ mysql_query($query);
 echo mysql_error();
 
 
+$check_last_query = "SELECT `id` FROM `events` ORDER BY `id` ASC";
+$check_last_res = mysql_query($check_last_query);
+
+echo mysql_error();
+
+while ($row_check_last = mysql_fetch_assoc($check_last_res)) {
+
+    $last_id = $row_check_last["id"];
+
+}
+
 //Logujemy
 
-$query_log = "INSERT INTO `log_fixtures` (`type`, `timestamp`, `user`) VALUES ('0', '$now', '$login')";
+$query_log = "INSERT INTO `log_fixtures` (`type`, `timestamp`, `user`, `event_id`) VALUES ('13', '$now', '$login', '$last_id')";
 
 //echo $query_log;
 
