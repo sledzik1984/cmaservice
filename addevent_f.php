@@ -1,21 +1,10 @@
 <?php
-$login = $_COOKIE["user_login_cma"];
 
-//Funkcja generująca qrkod 
-// Trzeba sprawdzić czy qrcod nie został wcześniej wygenerowany - stąd użycie Mysql
-//
-// Użycie
-//
-// qrcode_gen(n) gdzie n to długość generowanego ciągu
-function qrcode_gen($dlugosc){
-    $pattern='1234567890qwertyuioplkjhgfdsazxcvbnm';
-	for($i=0; $i<$dlugosc; $i++){
-	    $key.=$pattern{rand(0,35)};
-	}
-	return $key;
-}
 
 include 'mysql.php';
+$login = $_COOKIE["user_login_cma"];
+
+
 
 //print_r($_COOKIE);
 
@@ -25,20 +14,28 @@ $response = $_POST["response"];
 $start = $_POST["start"];
 $stop = $_POST["stop"];
 $manager = $_POST["manager"];
-$qrcode = qrcode_gen(40);
 
 $now = mktime();
 
-echo $qrcode;
+$cli_query = "SELECT * FROM `rental_clients` WHERE `company` = '$client' LIMIT 1";
+$cli_result = mysql_query($cli_query);
 
+echo mysql_error();
+
+while ($cli_row = mysql_fetch_assoc($cli_result)) {
+
+    $cli_id = $cli_row["id"];
+
+
+}
 
 
 //Dodajemy do bazuni... 
 
 
 //Dodajemy sztukę:
-$query = "INSERT INTO `events` (`timestamp`, `timestart`, `timestop`, `who`, `back`, `where`, `response`, `warehousemanager`, `qrcode`) VALUES 
-( '$now', '$start', '$stop', '$client', '0', '$where', '$response', '$manager', '$qrcode')";
+$query = "INSERT INTO `events` (`timestamp`, `timestart`, `timestop`, `who`, `back`, `where`, `response`, `warehousemanager`) VALUES 
+( '$now', '$start', '$stop', '$cli_id', '0', '$where', '$response', '$manager')";
 
 mysql_query($query);
 echo mysql_error();
