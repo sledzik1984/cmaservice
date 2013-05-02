@@ -211,7 +211,7 @@ while ($history_row = mysql_fetch_assoc($history_result)) {
 	}
 
 
-	echo "Utworzono sztukę dla " .$event_who_who;
+	echo "Utworzono sztukę dla <a href=\"eventdetails.php?id=".$event_id."\">" .$event_who_who."</a>\n";;
 	break;
     
     }
