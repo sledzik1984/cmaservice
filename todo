@@ -1,0 +1,93 @@
+CMA ERP - ToDo
+
+1. Protokoly
+
+Tworzenie protokołów na podstawie stanów Magazynowych! Jeśli na magazynie nie ma danego sprzętu - system nie pozwoli
+go dodać do protokołu
+
+Podpis pod protokołem generowany na podstawie zalogowanego użyszkodnika
+
+2. Magazyn z możliwością inwentaryzacji przy pomocy barkodów
+
+2.1 Inwentaryzacja
+
+Inwentaryzacja jest generalnie ciężką brochą. 
+
+Zrobiłbym to tak.
+
+Baza urządzeń ma pole last_audit zawierające datę ostatniego zinwentaryzowania. Wtorek we firmie to dzien inwentaryzacyjny.
+Osoba inwentaryzuje sprzęt który znajdzie w firmie i baza jest aktualizowana - pole last_audit zawiera świeżutką datę.
+Potem we wtorek o 23:59 inwentaryzacja jest zamykana. Wszystkie sprzęty które mają last_audit większy niż 24 godziny poprzez 
+skrypt będą oznaczone jako sprzęty których nie ma na magazynie i dodatkowo pole lost będzie równało się 1.
+Potem skrypt pobiera informacje o zagubionych sprzętach i sprawdza w bazie gdzie dany sprzęt był ostatnio na sztuce. Po czym
+informuje Irka co, gdzie i kiedy. Oczywiście graty które mają oznaczenie ontour = 1 nie są brane pod uwagę w procesie
+inwentaryzacji. Rzeczy które nie zostaną zinwnetaryzowane do 23:59:59 są oznaczane jako present=0 & lost=1
+
+
+
+3. Baza urządzeń
+
+Na podstawie barkodu można wyszukać dane urządzenie i sprawdzić sobie co z danym urządzeniem dokładnie się działo
+w przedziale czasu. Serwisy, sztuki, wypożyczenia, itp. 
+
+4. Tabela zdarzeń
+
+Logi :) Czyli to co prawdziwi chłopcy lubią najbardziej :) W momencie wykonywania jakiejkolwiek czynności musimy zapisać
+to co robimy do tabeli z logami. Potem chcemy mieć możliwości wydrukowania sobie dokładnego raportu.
+
+4.1 Tabela zdażeń dla urządzeń
+
+Typy
+- wyjazd na sztuke 1
+- powrót ze sztuki 2
+- wymiana żarówki 3
+- serwis 4
+- zakończenie serwisu 5
+- wypożyczenie zewnętrzne 6
+- powrót z wypożyczenia 7
+- inwentaryzacja 8
+- wstępne dodanie do magazynu 0
+
+
+
+5. Użytkownicy
+
+Rezygnujemy z użycia tradycyjnej formy użytkowników i haseł. Trochę zafuania! Użytkownik będzie "logowany" na podstawie
+odczytania barkodu z karty (być może z tej samej która będzie otwierać bramkę). W momencie gdy odczytamy kod z karty 
+użytkownika - tworzone będzie ciasteczko. W momencie zakończenia pracy (lub po upływie 10 minut nieaktywności) ciastko 
+będzie kasowane i użytkownik będzie musiał sie zalogować ponownie.
+
+
+6. Serwisy... 
+
+Tu kwestia tez jest deczko skomplikowana. Trzeba logowac kto urzadzenie serwisuje. Tzn. pracownicy firmy, Bielewicz, Chodkiewicz
+czy ktokolwiek inny. Z dokładnym opisem uszkodzenia najlepiej.
+
+
+7. Plazma w biurze...
+
+Tak sobie pomyślałem, że skoro w biurze jest plazma... to może fajnie by było zrobić stronę na której widoczny będzie
+cały bieżący tydzień... A w ogóle to najlepiej żeby to było we Flashu i robiło coś dynamicznego... jakieś wykresiki, 
+szmerki bajerki. 
+
+
+8. Grafik
+
+Moduł produkcji grafiku też byłby dobry! 
+
+
+9. Blokady urządzeń
+
+W OPARCIU O SYSTEM REZERWACJI POKOI HOTELOWYCH, funkcje BETWEEN!!
+
+Lista wolnego sprzętu na dany dzień, okres dni - dla działu marketingu!
+
+Urządzenia mogą być blokowane od do. Jeśli urządzenie ma założoną blokadę - nie da się dodać urządzenia do protokołu ani pobrać
+z magazynu. 
+
+Generalnie blokady moim zdaniem powinny działać tak. 
+
+W momencie sprawdzania czy urządzenie można dodać do protokołu na dany 
+
+
+select count from bloady where kodkreskowy=urzadzenie and tstart > czasnowejblokady and tstop < czasnowejblokady
