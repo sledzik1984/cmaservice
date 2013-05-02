@@ -1,5 +1,9 @@
 <?php
 
+$cli_no = $_GET["cli"];
+
+
+
 //Todo:
 
 // Odpowiedzialny za sprzęt do wybrania z listy
@@ -31,6 +35,7 @@ echo "</script>\n";
 echo "\t</head>\n";
 echo "\t<body>\n";
 
+
 echo "<script type=\"text/javascript\" language=\"JavaScript\" src=\"inc/overlib.js\"></script>\n";
 echo "<div class=\"mainmargin\">\n";
 
@@ -45,7 +50,18 @@ echo "<table cellpadding=\"4\" cellspacing=\"0\" width=\"100%\">\n";
 
 echo "<tr class=\"dark\">\n";
 echo "<td class=\"fall\" width=\"100%\">\n";
+
+if ($cli_no == "none") {
+
+echo "Nowa impreza - <b>Nie ma takiego klienta. Ogarnij się!</b>\n";
+
+} else {
+
 echo "Nowa impreza\n";
+
+}
+
+
 echo "</td>\n";
 echo "</tr>\n";
 

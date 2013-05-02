@@ -1,5 +1,9 @@
 <?php
 
+//Todo:
+//
+// Zamiana daty z kalendarza na timestamp 
+
 
 include 'mysql.php';
 $login = $_COOKIE["user_login_cma"];
@@ -29,6 +33,14 @@ while ($cli_row = mysql_fetch_assoc($cli_result)) {
 
 }
 
+if (empty($cli_id)) {
+
+header ("Location: addevent.php?cli=none");
+
+
+} else {
+
+
 
 //Dodajemy do bazuni... 
 
@@ -50,6 +62,10 @@ $query_log = "INSERT INTO `log_fixtures` (`type`, `timestamp`, `user`) VALUES ('
 mysql_query($query_log);
 echo mysql_error();
 
-//header ("Location: events.php");
+header ("Location: events.php");
+
+
+}
+
 
 ?>
