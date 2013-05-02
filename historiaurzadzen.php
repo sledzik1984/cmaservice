@@ -9,6 +9,8 @@ echo "\t\t<link href=\"inc/style.css\" rel=\"stylesheet\" type=\"text/css\">\n";
 echo "<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" >\n";
 echo "<script language=\"JavaScript\" src=\"jquery.js\"></script>\n";
 echo "<script language=\"JavaScript\" src=\"jquery.tooltip.js\"></script>\n";
+echo "<script language=\"JavaScript\" src=\"inc/common.js\"></script>\n";
+
 
 echo "<script type=\"text/javascript\">\n";
 
@@ -99,7 +101,7 @@ while ($history_row = mysql_fetch_assoc($history_result)) {
     $rental_id = $history_row["rental_id"];
     
     echo "<tr class=\"lucid\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
-    echo "<td class=\"fleft\" valign=\"top\">\n";
+    echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&b=".$fixture_id."';\"    class=\"fleft\" valign=\"top\">\n";
     
     $fix_query = "SELECT * FROM `warehouse` WHERE `barcode` = '$fixture_id'";
     $fix_result = mysql_query($fix_query);
@@ -110,7 +112,7 @@ while ($history_row = mysql_fetch_assoc($history_result)) {
 	$fix_name = $fix_row["name"];
 	$deleted_comment = $fix_row["deleted_comment"];
 	
-	echo "<a href=\"?m=historiaurzadzen&b=".$fixture_id."\">".$fix_name."</a>";
+	echo $fix_name;
     
     }
     

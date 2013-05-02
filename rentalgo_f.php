@@ -1,4 +1,5 @@
 <?php
+
 $login = $_COOKIE["user_login_cma"];
 
 include 'mysql.php';
@@ -8,7 +9,6 @@ $barcode = $_POST["barcode"];
 $barcode_bez_zera = $barcode += 0;
 $rental_details = $_POST["rental_details"];
 $last = $_POST["last"];
-
 
 if (empty($barcode)) {
 

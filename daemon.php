@@ -1,15 +1,16 @@
 <?php
 
+$now = mktime();
+
 include 'mysql.php';
 
-//Sprzet nie wrocil z wypozyczenia w terminie
+
 
 // *****************************************************************************
 //Oznaczanie sprzętu jako zagubiony                                            *
 // *****************************************************************************
 
 echo "Rozpoczynam poszukiwanie zagubionego sprzętu (poza magazynem ponad 7 dni)\n";
-$now = mktime();
 
 $lost_query = "SELECT * FROM `warehouse` WHERE `deleted` = '0' ORDER BY `id` ASC";
 $lost_result = mysql_query($lost_query);
@@ -39,9 +40,9 @@ while ($lost_row = mysql_fetch_assoc($lost_result)) {
     } else {
     
 	//Oznacz jako nie zagubiony!
-	$set_found_q = "UPDATE `warehouse` SET `lost` = '0' WHERE `id` '$lost_id'";
-	mysql_query($set_found_q);
-	echo mysql_error();
+	//$set_found_q = "UPDATE `warehouse` SET `lost` = '0' WHERE `id` '$lost_id'";
+	//mysql_query($set_found_q);
+	//echo mysql_error();
 
 
     
@@ -51,8 +52,10 @@ while ($lost_row = mysql_fetch_assoc($lost_result)) {
 }
 
 // ********************************************************************************
-//                                                                                *
+//  Brak inwentaryzacji == sprzęt zagubiony!!                                     *
 // ********************************************************************************
+
+
 
 
 
