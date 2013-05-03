@@ -4,6 +4,6 @@
 
 // debug = 1; Listuje teksty pomocne w usuwaniu błęów
 
-$debug = 1;
+$debug = 0;
 
 ?>

@@ -106,7 +106,12 @@ switch ($search_type) {
 		}
 		break;
 	case 1:
-		$history_query = "SELECT * FROM `log_fixtures` WHERE `fixture_id` = '$fixture' ORDER BY `timestamp` DESC";
+		if (empty($fixture)) {
+			$history_query = "SELECT * FROM `log_fixtures` ORDER BY `timestamp` DESC";
+		} else {
+			$history_query = "SELECT * FROM `log_fixtures` WHERE `fixture_id` = '$fixture' ORDER BY `timestamp` DESC";
+		}
+
 		if ($debug == 1) {
 			echo "DEBUG: " . $history_query;
 			echo "DEBUG: search_type = " .$search_type;
