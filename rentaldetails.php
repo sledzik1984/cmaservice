@@ -16,7 +16,7 @@ echo "<html>\n";
 echo "\t<head>\n";
 echo "\t\t<link href=\"inc/style.css\" rel=\"stylesheet\" type=\"text/css\">\n";
 echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n";
-
+echo "<script language=\"JavaScript\" src=\"inc/common.js\"></script>\n";
 
 echo "\t</head>\n";
 echo "\t<body>\n";
@@ -184,8 +184,9 @@ while ($row_rental_positions = mysql_fetch_assoc($result_rental_positions)) {
 	$fixture_barcode = $row_fixture["barcode"];
 	
 
-	echo "<tr class=\"light\">\n";
-	echo "<td width=\"25%\" class=\"fleft\">".$fixture_name."</td>\n";
+	echo "<tr onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\" class=\"light\">\n";
+	echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&search_type=1&b=".$fixture_barcode."';\" width=\"25%\" class=\"fleft\">".$fixture_name."</td>\n";
+
 	echo "<td class=\"\">" . $fixture_barcode . "</td>\n";
 
 
