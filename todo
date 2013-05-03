@@ -52,24 +52,10 @@ Typy
 
 5. Użytkownicy
 
-Rezygnujemy z użycia tradycyjnej formy użytkowników i haseł. Trochę zafuania! Użytkownik będzie "logowany" na podstawie
-odczytania barkodu z karty (być może z tej samej która będzie otwierać bramkę). W momencie gdy odczytamy kod z karty 
-użytkownika - tworzone będzie ciasteczko. W momencie zakończenia pracy (lub po upływie 10 minut nieaktywności) ciastko 
-będzie kasowane i użytkownik będzie musiał sie zalogować ponownie.
-
-
 6. Serwisy... 
 
 Tu kwestia tez jest deczko skomplikowana. Trzeba logowac kto urzadzenie serwisuje. Tzn. pracownicy firmy, Bielewicz, Chodkiewicz
 czy ktokolwiek inny. Z dokładnym opisem uszkodzenia najlepiej.
-
-
-7. Plazma w biurze...
-
-Tak sobie pomyślałem, że skoro w biurze jest plazma... to może fajnie by było zrobić stronę na której widoczny będzie
-cały bieżący tydzień... A w ogóle to najlepiej żeby to było we Flashu i robiło coś dynamicznego... jakieś wykresiki, 
-szmerki bajerki. 
-
 
 8. Grafik
 
