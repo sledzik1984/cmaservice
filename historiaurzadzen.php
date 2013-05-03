@@ -1,7 +1,13 @@
 <?php
 
 $fixture = $_GET["b"];
+$client_id = $_GET["client_id"];
+$search_type = $_GET["search_type"];
+
+
+include 'debug.php';
 include 'mysql.php';
+
 
 echo "<html>\n";
 echo "\t<head>\n";
@@ -21,6 +27,10 @@ echo "}); \n";
 echo "</script>\n";
 
 echo "</head>\n";
+echo "<body>\n";
+
+if ($debug == 1) { echo "DEBUG: search_type = " .$search_type; }
+
 echo "<div class=\"mainmargin\">\n";
 
 
@@ -75,19 +85,47 @@ echo "</td>\n";
 
 echo "</tr>\n";
 
+//Typy wyszukiwań:
+//
+// search_type = 0; Poka wszystko
+// search_type = 1; Wyszukaj po ID urządzenia
+// search_type = 2; Wyszukaj po ID firmy
 
+if (empty($search_type)) {
+	if ($debug == 1) {echo "DEBUG: Empty search_type, set search_type=0\n";}
+	$search_type = 0;
+	//echo "DEBUG: search_type = " . $search_type;
+} 
 
-if (empty($fixture)) {
-
-    $history_query = "SELECT * FROM `log_fixtures` ORDER BY `timestamp` DESC";
-
-} else {
-
-    $history_query = "SELECT * FROM `log_fixtures` WHERE `fixture_id` = '$fixture' ORDER BY `timestamp` DESC";
+switch ($search_type) {
+	case 0:
+		$history_query = "SELECT * FROM `log_fixtures` ORDER BY `timestamp` DESC";
+		if ($debug == 1) {
+			echo "DEBUG: " . $history_query;
+			echo "DEBUG: search_type = " .$search_type;
+		}
+		break;
+	case 1:
+		$history_query = "SELECT * FROM `log_fixtures` WHERE `fixture_id` = '$fixture' ORDER BY `timestamp` DESC";
+		if ($debug == 1) {
+			echo "DEBUG: " . $history_query;
+			echo "DEBUG: search_type = " .$search_type;
+		}
+		break;
+	case 2:
+		$history_query = "SELECT * FROM `log_fixtures` WHERE `client_id` = '$client_id' ORDER BY `timestamp` DESC";
+		if ($debug == 1) { 
+			echo "DEBUG: " . $history_query;
+			echo "DEBUG: search_type = " .$search_type;
+		}
+		break;
 
 }
 
 $history_result = mysql_query($history_query);
+
+
+if ($debug == 1) {echo mysql_error();}
 
 while ($history_row = mysql_fetch_assoc($history_result)) {
 
@@ -102,7 +140,7 @@ while ($history_row = mysql_fetch_assoc($history_result)) {
     $event_id = $history_row["event_id"];
     
     echo "<tr class=\"lucid\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
-    echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&b=".$fixture_id."';\"    class=\"fleft\" valign=\"top\">\n";
+    echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&search_type=1&b=".$fixture_id."';\"    class=\"fleft\" valign=\"top\">\n";
     
     $fix_query = "SELECT * FROM `warehouse` WHERE `barcode` = '$fixture_id'";
     $fix_result = mysql_query($fix_query);

@@ -4,7 +4,7 @@ $login = $_COOKIE["user_login_cma"];
 
 include 'mysql.php';
 
-
+$client_id = $_POST["client_id"];
 $barcode = $_POST["barcode"];
 $barcode_bez_zera = $barcode += 0;
 $rental_details = $_POST["rental_details"];
@@ -36,7 +36,7 @@ header("Location: emptybarcode.php");
     echo mysql_error();
 
 
-    $query_log = "INSERT INTO `log_fixtures` (`fixture_id`, `type`, `timestamp`, `user`, `rental_id`) VALUES ('$barcode_bez_zera', '6', '$now', '$login', '$rental_details')";
+    $query_log = "INSERT INTO `log_fixtures` (`fixture_id`, `type`, `timestamp`, `user`, `rental_id`, `client_id`) VALUES ('$barcode_bez_zera', '6', '$now', '$login', '$rental_details', '$client_id')";
     mysql_query($query_log);
     echo mysql_error();
 

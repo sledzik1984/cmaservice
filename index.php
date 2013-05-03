@@ -6,7 +6,8 @@ include 'mysql.php';
 $module = $_GET["m"];
 $b = $_GET["b"];
 $rid = $_GET["rid"];
-
+$search_type = $_GET["search_type"];
+$client_id = $_GET["client_id"];
 echo "<html>\n";
 echo "<head>\n";
 echo "<title>Concept Music Art Sp. z o.o.</title>\n";
@@ -22,7 +23,7 @@ if (!isset($module)) {
 
 } else {
 
-    echo "\t<frame noresize=\"noresize\" src=\"" . $module . ".php?b=" .$b . "&rid=". $rid ."\" name=\"main\">\n";
+    echo "\t<frame noresize=\"noresize\" src=\"" . $module . ".php?b=" .$b . "&rid=". $rid ."&search_type=".$search_type  . "\" name=\"main\">\n";
 
 }
 

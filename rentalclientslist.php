@@ -53,7 +53,7 @@ while ($row = mysql_fetch_assoc($r)) {
     //Pętla if odpowiedzialna za rozróżnianie id parzystych i nie parzystych
 
 	echo "<tr class=\"light\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
-	echo "\t<td class=\"fleft\">" . $company . "</td>\n";
+	echo "\t<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&search_type=2&client_id=".$id."';\" class=\"fleft\">" . $company . "</td>\n";
 	echo "\t<td>" . $document_no . "</td>\n";
 	echo "\t<td>" . $street . "</td>\n";
 	echo "\t<td>" . $zip . "</td>\n";
@@ -69,7 +69,7 @@ while ($row = mysql_fetch_assoc($r)) {
 } else {
 
 	echo "<tr class=\"lucid\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
-	echo "\t<td class=\"fleft\">" . $company . "</td>\n";
+	echo "\t<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&search_type=2&client_id=".$id."';\" class=\"fleft\">" . $company . "</td>\n";
 	echo "\t<td>" . $document_no . "</td>\n";
 	echo "\t<td>" . $street . "</td>\n";
 	echo "\t<td>" . $zip . "</td>\n";

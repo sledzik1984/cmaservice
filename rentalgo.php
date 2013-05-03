@@ -1,7 +1,9 @@
 <?php
 
 $post_rental_id = $_GET["rid"];
+$client_id = $_GET["client_id"];
 
+//print_r($_GET);
 //echo $post_rental_id;
 
 include 'mysql.php';
@@ -64,7 +66,7 @@ while ($rental_row = mysql_fetch_assoc($rental_res)) {
 	    //echo "\t<option selected value=\"".$rental_details_id."\">". $firstname . " " .$lastname ." ".$company." - wydanie: " . date("d-m-Y H:i:s", $rental_details_timestart). "\n";
 	
 	    echo "<input type=\"hidden\" name=\"rental_details\" id=\"rental_details\" value=\"".$post_rental_id."\">\n";
-	
+	    echo "<input type=\"hidden\" name=\"client_id\" id=\"client_id\" value=\"".$client_id."\">\n";	
 	} else {
 	
 	    echo "<h2>Wypożyczenie dla ". $firstname . " " .$lastname. " " .$company." - wydanie: ". date("d-m-Y H:i:s", $rental_details_timestart)."</h2>\n";

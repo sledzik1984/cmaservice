@@ -102,7 +102,7 @@ while ($row = mysql_fetch_assoc($result)) {
 
 
 
-        echo "\t<td class=\"fright\"><a href=\"rental_del.php?id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć wypożyczenie bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<a href=\"rentalgo.php?rid=".$id."\"><img src=\"img/go.gif\"></a>&nbsp;<img src=\"img/edit.gif\"><a href=\"rentalback.php?rid=".$id."\"><img src=\"img/back.gif\"></a></td>\n";
+        echo "\t<td class=\"fright\"><a href=\"rental_del.php?id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć wypożyczenie bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<a href=\"rentalgo.php?rid=".$id."&client_id=".$rental_client."\"><img src=\"img/go.gif\"></a>&nbsp;<img src=\"img/edit.gif\"><a href=\"rentalback.php?rid=".$id."\"><img src=\"img/back.gif\"></a></td>\n";
         
          
         
@@ -153,7 +153,7 @@ while ($row = mysql_fetch_assoc($result)) {
         }
 
 
-        echo "\t<td class=\"fright\"><a href=\"rental_del.php?id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć wypożyczenie z bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<a href=\"rentalgo.php?rid=".$id."\"><img src=\"img/go.gif\"></a>&nbsp;<img src=\"img/edit.gif\"><a href=\"rentalback.php?rid=".$id."\"><img src=\"img/back.gif\"></a></td>\n";
+        echo "\t<td class=\"fright\"><a href=\"rental_del.php?id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć wypożyczenie z bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<a href=\"rentalgo.php?rid=".$id."&client_id=".$rental_client."\"><img src=\"img/go.gif\"></a>&nbsp;<img src=\"img/edit.gif\"><a href=\"rentalback.php?rid=".$id."\"><img src=\"img/back.gif\"></a></td>\n";
         
         echo "</tr>\n\n";
 
