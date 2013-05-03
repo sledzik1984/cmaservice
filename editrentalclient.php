@@ -53,15 +53,6 @@ echo "<tr class=\"light\">\n";
 echo "<td width=\"100%\" class=\"fbottomu\" align=\"right\">\n";
 
 echo "<table width=\"100%\" border=\"0\">\n";
-echo "<tr>\n";
-echo "<td>Imię: </td>\n";
-echo "<td><input type=\"text\" name=\"firstname\" value=\"".$first_name."\"></td>\n";
-echo "</tr>\n";
-
-echo "<tr>\n";
-echo "<td>Nazwisko: </td>\n";
-echo "<td><input type=\"text\" name=\"lastname\" value=\"".$last_name."\"></td>\n";
-echo "</tr>\n";
 
 echo "<tr>\n";
 echo "<td>Firma </td>\n";
