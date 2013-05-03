@@ -19,7 +19,7 @@ echo "<h1>Lista klientów</h1>\n";
 echo "<table cellpadding=\"4\" width=\"100%\">\n";
 
 echo "<tr class=\"dark\">\n";
-echo "<td class=\"fbt\">Firma</td>\n";
+echo "<td class=\"fleftu\">Firma</td>\n";
 echo "<td class=\"fbt\">Numer dokumentu</td>\n";
 echo "<td class=\"fbt\">Ulica</td>\n";
 echo "<td class=\"fbt\">Kod pocztowy</td>\n";
@@ -52,7 +52,7 @@ while ($row = mysql_fetch_assoc($r)) {
     if ($id%2 == 0) {
     //Pętla if odpowiedzialna za rozróżnianie id parzystych i nie parzystych
 
-	echo "<tr class=\"light\">\n";
+	echo "<tr class=\"light\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
 	echo "\t<td class=\"fleft\">" . $company . "</td>\n";
 	echo "\t<td>" . $document_no . "</td>\n";
 	echo "\t<td>" . $street . "</td>\n";
@@ -68,7 +68,7 @@ while ($row = mysql_fetch_assoc($r)) {
     
 } else {
 
-	echo "<tr class=\"lucid\">\n";
+	echo "<tr class=\"lucid\" onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\">\n";
 	echo "\t<td class=\"fleft\">" . $company . "</td>\n";
 	echo "\t<td>" . $document_no . "</td>\n";
 	echo "\t<td>" . $street . "</td>\n";
