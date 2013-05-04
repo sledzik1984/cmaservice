@@ -108,13 +108,6 @@ echo "</tr>\n";
 
 echo "<tr class=\"light\"\>\n";
 
-echo "<td class=\"fleft\">Odległość</td>\n";
-echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"distance\"></td>\n";
-
-echo "</tr>\n";
-
-echo "<tr class=\"light\"\>\n";
-
 echo "<td class=\"fleft\">Symultana</td>\n";
 echo "<td class=\"fright\"><select name=\"symultana\"><option value=\"0\">Brak info</option><option value=\"1\">Wnoszenie</option><option value=\"2\">Winda</option><option value=\"3\">Dużo promienników</option><option value=\"4\">Okej</option></select></td>\n";
 

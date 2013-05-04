@@ -11,6 +11,7 @@ $client_id = $_GET["client_id"];
 $is_sure = $_GET["is_sure"];
 $event_id = $_GET["event_id"];
 
+$place_id = $_GET["place_id"];
 
 echo "<html>\n";
 echo "<head>\n";
@@ -27,7 +28,7 @@ if (!isset($module)) {
 
 } else {
 
-    echo "\t<frame noresize=\"noresize\" src=\"" . $module . ".php?b=" .$b . "&rid=". $rid ."&search_type=".$search_type  . "\" name=\"main\">\n";
+    echo "\t<frame noresize=\"noresize\" src=\"" . $module . ".php?b=" .$b . "&rid=". $rid ."&search_type=".$search_type  . "&place_id=".$place_id." \" name=\"main\">\n";
 
 }
 
