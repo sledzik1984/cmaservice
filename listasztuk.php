@@ -46,11 +46,26 @@ while ($row = mysql_fetch_assoc($r)) {
     $response = $row["response"];
     $manager = $row["warehousemanager"];
 
+	//Pobieramy z bazy dane klienta:
+
+	$client_query = "SELECT `company` FROM `rental_clients` WHERE `id` = '$who' LIMIT 1";
+	$client_result = mysql_query($client_query);
+
+	if ($debug == 1) { echo "DEBUG: mysql_error():".mysql_error(); } 
+
+	while ($client_row = mysql_fetch_assoc($client_result)) {
+
+		$client_name = $client_row["company"];
+
+
+	}
+
+
     if ($id%2 == 0) {
     //Pętla if odpowiedzialna za rozróżnianie id parzystych i nie parzystych
 
 	echo "<tr class=\"light\">\n";
-	echo "\t<td class=\"fleft\">" . $who . "</td>\n";
+	echo "\t<td class=\"fleft\">" . $client_name . "</td>\n";
 	echo "\t<td>" .$where  . "</td>\n";
 	echo "\t<td>" . $response . "</td>\n";
 	echo "\t<td>" . $manager . "</td>\n";
@@ -64,7 +79,7 @@ while ($row = mysql_fetch_assoc($r)) {
 } else {
 
 	echo "<tr class=\"lucid\">\n";
-	echo "\t<td class=\"fleft\">" . $who . "</td>\n";
+	echo "\t<td class=\"fleft\">" . $client_name . "</td>\n";
 	echo "\t<td>" . $where . "</td>\n";
 	echo "\t<td>" . $response . "</td>\n";
 	echo "\t<td>" . $manager . "</td>\n";
