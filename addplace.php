@@ -56,6 +56,74 @@ echo "</tr>\n";
 
 echo "<tr class=\"light\"\>\n";
 
+echo "<td class=\"fleft\">Piętro</td>\n";
+echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"floor\"></td>\n";
+
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">Zasilanie</td>\n";
+echo "<td class=\"fright\">\n";
+echo "\t<select name=\"power\">\n";
+echo "\t\t<option value=\"0\">Brak info</optin>\n";
+echo "\t\t<option value=\"1\">Gniazdka 230V</option>\n";
+echo "\t\t<option value=\"2\">Gniazdo 16A 5 bolców</option>\n";
+echo "\t\t<option value=\"3\">Gniazdo 16A 4 bolce</option>\n";
+echo "\t\t<option value=\"4\">Gniazdo 32A</option>\n";
+echo "\t\t<option value=\"5\">Gniazdo 63A</option>\n";
+echo "\t\t<option value=\"6\">Gniazdo 125A</option>\n";
+echo "\t\t<option value=\"7\">Wąsy</option>\n";
+echo "\t\t<option value=\"8\">Inne - patrz rysunek</option>\n";
+echo "\t\t<option value=\"9\">Agregat</option>\n";
+
+echo "\t</select>\n";
+echo "</td>\n";
+
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">Winda</td>\n";
+echo "<td class=\"fright\"><select name=\"elevator\"><option value=\"0\">Brak info</option><option value=\"1\">Tak</option><option value=\"2\">Nie</option></select></td>\n";
+
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">WiFi</td>\n";
+echo "<td class=\"fright\"><select name=\"wifi\"><option value=\"0\">Brak info</option><option value=\"1\">Tak</option><option value=\"2\">Nie</option></select></td>\n";
+
+echo "</tr>\n";
+
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">Parking</td>\n";
+echo "<td class=\"fright\"><select name=\"parking\"><option value=\"0\">Nie</option><option value=\"1\">Osobówki</option><option value=\"2\">Tak</option><option value=\"3\">Tak - płatny</option></select></td>\n";
+
+echo "</tr>\n";
+
+
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">Odległość</td>\n";
+echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"distance\"></td>\n";
+
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">Symultana</td>\n";
+echo "<td class=\"fright\"><select name=\"symultana\"><option value=\"0\">Brak info</option><option value=\"1\">Wnoszenie</option><option value=\"2\">Winda</option><option value=\"3\">Dużo promienników</option><option value=\"4\">Okej</option></select></td>\n";
+
+echo "</tr>\n";
+
+
+
+echo "<tr class=\"light\"\>\n";
+
 echo "<td class=\"fleft\">Rysunek</td>\n";
 echo "<td class=\"fright\"><input size=\"30\" type=\"file\" name=\"file\"></td>\n";
 
