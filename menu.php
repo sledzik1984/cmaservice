@@ -2,6 +2,28 @@
 
 include 'mysql.php';
 include 'inc/logging.php';
+include 'debug.php';
+
+//Obsługa uprawnień:
+
+$user = $_COOKIE["user_login_cma"];
+
+$user_query = "SELECT `permissions` FROM `users` WHERE `login` = '$user' LIMIT 1";
+
+$user_result = mysql_query($user_query);
+
+if ($debug == 1) { echo "DEBUG: mysql_error(): " . mysql_error(); }
+
+while ($user_row = mysql_fetch_assoc($user_result)) {
+
+	$perm = $user_row["permissions"];
+	// 0 - Full Access
+	// 1 - Magazynier
+	// 2 - Pracownik
+
+
+}
+
 
 
 echo "<html>\n";
@@ -61,6 +83,8 @@ echo "<table id=\"click-menu1\" class=\"click-menu\" cellpadding=\"0\" cellspaci
 
 // Menu kontrahenci
 
+if ($perm == 0 || $perm == 1 || $perm == 2) {
+
 echo "\t<tr>\n";
 echo "\t\t<td class=\"click-menu\">\n";
 echo "\t\t\t<div class=\"box1\"><font style=\"margin-left: 21px\">Klienci</font></div>\n";
@@ -80,8 +104,11 @@ echo "</div>\n";
 echo "\t\t</td>\n";
 echo "\t</tr>\n";
 
+}
 
 // Menu magazyn
+
+if ($perm == 0 || $perm == 1 || $perm == 3) {
 
 echo "\t<tr>\n";
 echo "\t\t<td class=\"click-menu\">\n";
@@ -107,16 +134,12 @@ echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Moduł dodawania
 echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=dodajsprzet\" target=\"_top\">&raquo;&nbsp;Dodaj sprzęt</a></div>\n";
 echo "\t\t\t</div>\n";
 
-//echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Moduł dodawania magazynów</b>',HAUTO,VAUTO,OFFSETX,15,OFFSETY,15);\" onmouseout=\"nd();\">\n";
-//echo "\t\t\t\t<div class=\"box2\"><a target=\"_top\" href=\"/cma_service/?m=dodajmagazyn\">&raquo;&nbsp;Dodaj magazyn</a></div>\n";
-//echo "\t\t\t</div>\n";
-
-
 echo "</div>\n";
 
 echo "\t\t</td>\n";
 echo "\t</tr>\n";
 
+}
 
 // Menu dla funkcji odpowiedzialnych za serwis:
 
@@ -129,10 +152,6 @@ echo "<div class=\"section\">\n";
 echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Utworzenie szczegółów wypożyczenia sprzętu</b>',HAUTO,VAUTO,OFFSETX,15,OFFSETY,15);\" onmouseout=\"nd();\">\n";
 echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=makerental\" target=\"_top\">&raquo;&nbsp;Utwórz wypożyczenie</a></div>\n";
 echo "\t\t\t</div>\n";
-
-//echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Wydanie wypożyczenia sprzętu</b>',HAUTO,VAUTO,OFFSETX,15,OFFSETY,15);\" onmouseout=\"nd();\">\n";
-//echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=rentalgo\" target=\"_top\">&raquo;&nbsp;Wydanie wypożyczenia</a></div>\n";
-//echo "\t\t\t</div>\n";
 
 echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Lista wypożyczeń</b>',HAUTO,VAUTO,OFFSETX,15,OFFSETY,15);\" onmouseout=\"nd();\">\n";
 echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=rentallist\" target=\"_top\">&raquo;&nbsp;Lista wypożyczeń</a></div>\n";
