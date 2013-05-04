@@ -217,14 +217,14 @@ echo "\t\t\t</div>\n";
 
 
 echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Wyjazd na sztukę</b>',HAUTO,VAUTO,OFFSETX,15,OFFSETY,15);\" onmouseout=\"nd();\">\n";
-echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=zaladunek\" target=\"_top\">&raquo;&nbsp;Załadunek</a></div>\n";
+echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=loadin\" target=\"_top\">&raquo;&nbsp;Załadunek</a></div>\n";
 echo "\t\t\t</div>\n";
 
 
 
 
 echo "\t\t\t<div class=\"tip\" onmouseover=\"return overlib('<b>Powrót ze sztuki</b>',HAUTO,VAUTO,OFFSETX,15,OFFSETY,15);\" onmouseout=\"nd();\">\n";
-echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=rozladunek\" target=\"_top\">&raquo;&nbsp;Rozładunek</a></div>\n";
+echo "\t\t\t\t<div class=\"box2\"><a href=\"/cma_service/?m=loadout\" target=\"_top\">&raquo;&nbsp;Rozładunek</a></div>\n";
 echo "\t\t\t</div>\n";
 
 
