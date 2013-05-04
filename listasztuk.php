@@ -31,7 +31,7 @@ echo "</tr>\n";
 
 
 
-$q = "SELECT * FROM `events` ORDER BY `id`";
+$q = "SELECT * FROM `events` WHERE `deleted` != '1' ORDER BY `id`";
 $r = mysql_query($q);
 
 
@@ -71,7 +71,7 @@ while ($row = mysql_fetch_assoc($r)) {
 	echo "\t<td>" . $manager . "</td>\n";
 	echo "\t<td>" . $start . "</td>\n";
 	echo "\t<td>" . $stop . "</td>\n";
-	echo "\t<td class=\"fright\"><a href=\"evendelete.php?&id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć klienta " . $firstname . " " . $lastname . " " . $company . " z bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<img src=\"img/edit.gif\"></td>\n";
+	echo "\t<td class=\"fright\"><a href=\"eventdelete.php?id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć sztukę z bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<img src=\"img/edit.gif\"></td>\n";
 	echo "</tr>\n\n";
 
     
@@ -85,7 +85,7 @@ while ($row = mysql_fetch_assoc($r)) {
 	echo "\t<td>" . $manager . "</td>\n";
 	echo "\t<td>" . $start . "</td>\n";
 	echo "\t<td>" . $stop . "</td>\n";
-	echo "\t<td class=\"fright\"><a href=\"eventdelete.php?&id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć klienta " . $firstname . " " . $lastname . " " . $company . " z bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<a href=\"editrentalclient.php?id=".$id."\"><img src=\"img/edit.gif\"></a></td>\n";
+	echo "\t<td class=\"fright\"><a href=\"eventdelete.php?id=".$id. "\" OnClick=\"return confirmLink(this, 'Czy jesteś pewien, że chcesz usunąć sztukęz bazy?');\"><img src=\"img/delete.gif\"></a>&nbsp;<a href=\"editrentalclient.php?id=".$id."\"><img src=\"img/edit.gif\"></a></td>\n";
 	echo "</tr>\n\n";
 
     }

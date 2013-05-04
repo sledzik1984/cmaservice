@@ -8,6 +8,10 @@ $b = $_GET["b"];
 $rid = $_GET["rid"];
 $search_type = $_GET["search_type"];
 $client_id = $_GET["client_id"];
+$is_sure = $_GET["is_sure"];
+$event_id = $_GET["event_id"];
+
+
 echo "<html>\n";
 echo "<head>\n";
 echo "<title>Concept Music Art Sp. z o.o.</title>\n";
