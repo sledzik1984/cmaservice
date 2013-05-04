@@ -64,7 +64,7 @@ while ($row = mysql_fetch_assoc($r)) {
     if ($id%2 == 0) {
     //Pętla if odpowiedzialna za rozróżnianie id parzystych i nie parzystych
 
-	echo "<tr class=\"light\">\n";
+	echo "<tr onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\" class=\"light\">\n";
 	echo "\t<td class=\"fleft\">" . $client_name . "</td>\n";
 	echo "\t<td>" .$where  . "</td>\n";
 	echo "\t<td>" . $response . "</td>\n";
@@ -78,7 +78,7 @@ while ($row = mysql_fetch_assoc($r)) {
     
 } else {
 
-	echo "<tr class=\"lucid\">\n";
+	echo "<tr onmouseover=\"addClass(this, 'highlight')\" onmouseout=\"removeClass(this, 'highlight')\" class=\"lucid\">\n";
 	echo "\t<td class=\"fleft\">" . $client_name . "</td>\n";
 	echo "\t<td>" . $where . "</td>\n";
 	echo "\t<td>" . $response . "</td>\n";
