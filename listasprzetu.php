@@ -216,6 +216,9 @@ echo "<td align=\"right\" width=\"1%\" class=\"fbt\" valign=\"top\" nowrap>\n";
 echo "Nr seryjny\n";
 echo "</td>\n";
 
+echo "<td align=\"right\" width=\"1%\" class=\"fbt\" valign=\"top\" nowrap>\n";
+echo "Waga (z kejsem)\n";
+echo "</td>\n";
 
 
 echo "<td align=\"right\" width=\"10%\" class=\"fbt\" valign=\"top\" nowrap>\n";
@@ -371,7 +374,7 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
     $lost = $row_sprzet["lost"];
     $broken = $row_sprzet["broken"];
     $serialno = $row_sprzet["serialno"];
-
+	$weight = $row_sprzet["weight"];
 //    switch (true) {
     
     
@@ -396,7 +399,7 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
     }
 
 
-    echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&b=" . $barcode . "';\" class=\"fleft\" valign=\"top\">\n";
+    echo "<td onClick=\"top.location.href='/cma_service/?m=historiaurzadzen&b=" . $barcode . "&search_type=1';\" class=\"fleft\" valign=\"top\">\n";
     echo $name;
     echo "</td>\n";
     
@@ -404,7 +407,10 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
     echo $serialno;
     echo "</td>\n";
     
-    
+    echo "<td align=\"right\" valign=\"top\" nowrap>\n";
+    echo $weight;
+    echo "</td>\n";
+ 
     
     echo "<td align=\"right\" valign=\"top\" nowrap>\n";
     echo $comment;
@@ -473,7 +479,7 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
 }
 
 echo "<tr class=\"dark\">\n";
-echo "<td colspan=\"7\" class=\"fall\">\n";
+echo "<td colspan=\"8\" class=\"fall\">\n";
 
 $prev = $page - 1;
 $next = $page + 1;

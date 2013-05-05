@@ -47,8 +47,8 @@ $parking = $row_details[9];
 $dist = $row_details[10];
 $time = $row_details[11];
 $tran = $row_details[12];
-$file = $row_details[13];
-
+$file = $row_details[14];
+$comment = $row_details[13];
 
 echo "<td class=\"fright\">" . $place  . "</td>\n";
 echo "</tr>\n";
@@ -64,7 +64,7 @@ echo "<td class=\"fright\">" . $city . "</td>\n";
 echo "</tr>\n";
 
 
-$gmaps = "https://maps.google.pl/maps?saddr=Kraków,+Dauna+70&daddr=".$city.",".$street."&hl=pl&ie=UTF8&sll=50.046766,20.004863&sspn=0.243839,0.676346&geocode=FehI-wIdFMowASkl85wDWkMWRzGXJ5vlHYwfDg%3BFTz7_gIdpkciASnRzKE2I84WRzG7-lkFNSqvuQ&t=h&mra=ls&z=10";
+$gmaps = "https://maps.google.pl/maps?saddr=Kraków,+Dauna+70&daddr=".$city.",".$street."&output=html&hl=pl&t=m";
 
 
 echo "<tr class=\"light\">\n";
@@ -80,17 +80,99 @@ echo "</tr>\n";
 
 echo "<tr class=\"light\">\n";
 echo "<td width=\"25%\" class=\"fleft\">Zasilanie:</td>\n";
-echo "<td class=\"fright\">" . $power . "</td>\n";
+
+switch($power) {
+
+	case 0:
+	$human_power = "Brak informacji";
+	break;
+
+        case 1:
+        $human_power = "Gniazdka 230V";
+        break;
+
+        case 2:
+        $human_power = "Gniazdo 16A 5 bolców";
+        break;
+
+        case 3:
+        $human_power = "Gniazdo 16A 4 bolce";
+        break;
+
+        case 4:
+        $human_power = "Gniazdo 32A";
+        break;
+
+        case 5:
+        $human_power = "Gniazdo 63A";
+        break;
+
+        case 6:
+        $human_power = "Gniazdo 125A";
+        break;
+
+        case 7:
+        $human_power = "Wąsy";
+        break;
+
+        case 8:
+        $human_power = "Patrz rysunek";
+        break;
+
+        case 9:
+        $human_power = "Agregat";
+        break;
+
+
+}
+
+
+echo "<td class=\"fright\">" . $human_power . "</td>\n";
 echo "</tr>\n";
+
+
+switch($elevator) {
+
+	case 0:
+	$human_elevator = "Brak informacji";
+	break;
+
+	case 1:
+	$human_elevator = "Tak";
+	break;
+
+	case 2:
+	$human_elevator = "Nie";
+	break;
+
+}
 
 echo "<tr class=\"light\">\n";
 echo "<td width=\"25%\" class=\"fleft\">Winda:</td>\n";
-echo "<td class=\"fright\">" . $elevator . "</td>\n";
+echo "<td class=\"fright\">" . $human_elevator . "</td>\n";
 echo "</tr>\n";
+
+
+switch($wifi) {
+
+	case 0:
+	$human_wifi = "Brak informacji";
+	break;
+
+	case 1:
+	$human_wifi = "Tak";
+	break;
+
+	case 2:
+	$human_wifi = "Nie";
+	break;
+
+
+}
 
 echo "<tr class=\"light\">\n";
 echo "<td width=\"25%\" class=\"fleft\">WiFi:</td>\n";
-echo "<td class=\"fright\">" . $wifi . "</td>\n";
+echo "<td class=\"fright\">" . $human_wifi . "</td>\n";
 echo "</tr>\n";
 
 echo "<tr class=\"light\">\n";
@@ -104,41 +186,43 @@ echo "<td class=\"fright\">" . $time . "</td>\n";
 echo "</tr>\n";
 
 
+switch ($tran) {
 
+	case 0:
+	$human_tran = "Brak info";
+	break;
+
+	case 1:
+	$human_tran = "Wnoszenie";
+	break;
+
+	case 2:
+	$human_tran = "Winda";
+	break;
+
+	case 3:
+	$human_tran = "Dużo promienników";
+	break;
+
+	case 4:
+	$human_tran = "Okej";
+	break;
+
+
+}
 
 
 echo "<tr class=\"light\">\n";
 echo "<td width=\"25%\" class=\"fleft\">Symultana </td>\n";
-echo "<td class=\"fright\">" . $tran . "</td>\n";
+echo "<td class=\"fright\">" . $human_tran . "</td>\n";
 echo "</tr>\n";
 
 echo "<tr class=\"light\">\n";
-echo "<td width=\"25%\" class=\"fleft\">Data zwrotu: </td>\n";
-echo "<td class=\"fright\">" . $timestop . "</td>\n";
+echo "<td width=\"25%\" class=\"fleft\">Komentarz: </td>\n";
+echo "<td class=\"fright\">" . $comment . "</td>\n";
 echo "</tr>\n";
 
 
-echo "<tr class=\"light\">\n";
-echo "<td width=\"25%\" class=\"fleft\">Faktura: </td>\n";
-
-if ($invoice == 0) {
-        echo "<td class=\"fright\"><form><input type=\"checkbox\" disabled=\"disabled\"></form></td>\n";
-} else {
-        echo "<td class=\"fright\"><form><input type=\"checkbox\" disabled=\"disabled\" checked=\"checked\"></form></td>\n";
-}
-
-echo "</tr>\n";
-
-echo "<tr class=\"light\">\n";
-echo "<td width=\"25%\" class=\"fleft\">Wydane: </td>\n";
-
-if ($out == 0) {
-        echo "<td class=\"fright\"><form><input type=\"checkbox\" disabled=\"disabled\"></form></td>\n";
-} else {
-        echo "<td class=\"fright\"><form><input type=\"checkbox\" disabled=\"disabled\" checked=\"checked\"></form></td>\n";
-}
-
-echo "</tr>\n";
 
 echo "<tr class=\"dark\">\n";
 echo "<td class=\"fall\" colspan=\"2\"></td>\n";

@@ -64,6 +64,16 @@ echo "<tr class=\"light\"\>\n";
 echo "<td class=\"fleft\">Dział</td>\n";
 echo "<td class=\"fright\"><select name=\"dzial\"><option value=\"2\">Światło</option><option value=\"3\">Dźwięk</option><option value=\"4\">Multimedia</option></td>\n";
 
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+
+echo "<td class=\"fleft\">Waga (z kejsem)</td>\n";
+echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"weight\"></td>\n";
+
+echo "</tr>\n";
+
+
 
 echo "</tr>\n";
 
