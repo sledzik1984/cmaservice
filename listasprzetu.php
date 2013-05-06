@@ -221,6 +221,11 @@ echo "Waga (z kejsem)\n";
 echo "</td>\n";
 
 
+echo "<td align=\"right\" width=\"1%\" class=\"fbt\" valign=\"top\" nowrap>\n";
+echo "Objętość (m<sup>3</sup>)\n";
+echo "</td>\n";
+
+
 echo "<td align=\"right\" width=\"10%\" class=\"fbt\" valign=\"top\" nowrap>\n";
 echo "Komentarz\n";
 echo "</td>\n";
@@ -375,6 +380,8 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
     $broken = $row_sprzet["broken"];
     $serialno = $row_sprzet["serialno"];
 	$weight = $row_sprzet["weight"];
+	$vol = $row_sprzet["volume"];
+
 //    switch (true) {
     
     
@@ -411,7 +418,14 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
     echo $weight;
     echo "</td>\n";
  
-    
+
+    echo "<td align=\"right\" valign=\"top\" nowrap>\n";
+    echo $vol;
+    echo "</td>\n";
+   
+
+
+ 
     echo "<td align=\"right\" valign=\"top\" nowrap>\n";
     echo $comment;
     echo "</td>\n";
@@ -479,7 +493,7 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
 }
 
 echo "<tr class=\"dark\">\n";
-echo "<td colspan=\"8\" class=\"fall\">\n";
+echo "<td colspan=\"9\" class=\"fall\">\n";
 
 $prev = $page - 1;
 $next = $page + 1;

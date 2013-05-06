@@ -24,6 +24,9 @@ echo "<html>\n";
 echo "\t<head>\n";
 echo "\t\t<link href=\"inc/style.css\" rel=\"stylesheet\" type=\"text/css\">\n";
 echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n";
+echo "<script language=\"JavaScript\" src=\"jquery.js\"></script>\n";
+echo "<script language=\"JavaScript\" src=\"jquery.tooltip.js\"></script>\n";
+echo "<script language=\"JavaScript\" src=\"inc/common.js\"></script>\n";
 
 
 echo "\t</head>\n";
@@ -67,11 +70,25 @@ echo "<td class=\"fright\"><select name=\"dzial\"><option value=\"2\">Światło<
 echo "</tr>\n";
 
 echo "<tr class=\"light\"\>\n";
-
-echo "<td class=\"fleft\">Waga (z kejsem)</td>\n";
+echo "<td class=\"fleft\">Waga <img src=\"img/help.png\" class=\"help\" title=\"W kilogramach, z kejsem\"></td>\n";
 echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"weight\"></td>\n";
-
 echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+echo "<td class=\"fleft\">Wysokość <img src=\"img/help.png\" class=\"help\" title=\"W centymetrach, z kejsem\"></td>\n";
+echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"height\"></td>\n";
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+echo "<td class=\"fleft\">Szerokość <img src=\"img/help.png\" class=\"help\" title=\"W centymetrach, z kejsem\"></td>\n";
+echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"width\"></td>\n";
+echo "</tr>\n";
+
+echo "<tr class=\"light\"\>\n";
+echo "<td class=\"fleft\">Głębokość <img src=\"img/help.png\" class=\"help\" title=\"W centymetrach, z kejsem\"></td>\n";
+echo "<td class=\"fright\"><input size=\"30\" type=\"text\" name=\"depth\"></td>\n";
+echo "</tr>\n";
+
 
 
 
