@@ -46,14 +46,20 @@ if (empty($fixture)) {
     $fixture_name_query = "SELECT * FROM `warehouse` WHERE `id` = '$fixture'";
     $fixture_name_result = mysql_query($fixture_name_query);
     
-    while ($fixture_name_row = mysql_fetch_assoc($fixture_name_result)) {
+    	while ($fixture_name_row = mysql_fetch_assoc($fixture_name_result)) {
     
-	$fixture_name = $fixture_name_row["name"];
-	echo "<h1>" . $fixture_name . "</h1>\n";
+		$fixture_name = $fixture_name_row["name"];
+		echo "<h1>" . $fixture_name . "</h1>\n";
     
-	echo "<a href=\"/cma_service/?m=deletefixture&b=" .$fixture."\" target=\"_top\">&raquo;&nbsp;Usuń urządzenie ze stanu magazynowego</a><br>\n";
-	echo "<a href=\"/cma_service/?m=addservice&b=" .$fixture. "\" target=\"_top\">&raquo;&nbsp;Zgłaszam uszkodzenie urządzenia</a>\n";
-    }
+		echo "<a href=\"/cma_service/?m=deletefixture&b=" .$fixture."\" target=\"_top\">&raquo;&nbsp;Usuń urządzenie ze stanu magazynowego</a><br>\n";
+		echo "<a href=\"/cma_service/?m=addservice&b=" .$fixture. "\" target=\"_top\">&raquo;&nbsp;Zgłaszam uszkodzenie urządzenia</a><br><br>\n";
+
+		echo "&raquo;&nbsp;Zarezerwuj urządzenie:\n";
+		echo "<br><br>\n";
+		echo "<form method=\"post\" action=\"registerfixture.php\">\n";    
+		echo "Rozpoczęcie rezerwacji: <input type=\"text\" name=\"block_start\">\n";
+
+	}
     
 
 }
