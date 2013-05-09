@@ -82,7 +82,24 @@ echo "</tr>\n";
 
 echo "<tr>\n";
 echo "<td>Odpowiedzialny za sprzęt: </td>\n";
-echo "<td><input type=\"text\" name=\"response\"></td>\n";
+echo "<td>";
+echo "\t<select name=\"response\">";
+
+$resp_query = "SELECT `id`, `name` FROM `users` ORDER BY `name` ASC";
+$resp_result = mysql_query($resp_query);
+
+while ($resp_row = mysql_fetch_assoc($resp_result)) {
+
+	$resp_id = $resp_row["id"];
+	$resp_name = $resp_row["name"];
+
+	echo "\t\t<option value=\"".$resp_id."\">".$resp_name."</option>\n";
+
+
+}
+
+echo "</select>\n";
+echo "</td>\n";
 echo "</tr>\n";
 
 echo "<tr>\n";

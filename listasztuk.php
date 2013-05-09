@@ -25,6 +25,7 @@ echo "<table cellpadding=\"4\" width=\"100%\">\n";
 
 echo "<tr class=\"dark\">\n";
 echo "<td class=\"fleftu\">Klient</td>\n";
+echo "<td class=\"fbt\">Nazwa</td>\n";
 echo "<td class=\"fbt\">Miejsce</td>\n";
 echo "<td class=\"fbt\">Odpowiedzialny</td>\n";
 echo "<td class=\"fbt\">Magazynier</td>\n";
@@ -51,7 +52,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	$where = $row["where"];
 	$response = $row["response"];
 	$manager = $row["warehousemanager"];
-    
+   	$name = $row["name"]; 
 
 
 
@@ -81,6 +82,7 @@ while ($row = mysql_fetch_assoc($result)) {
     
 	echo "<tr class=\"light\">\n";
         echo "\t<td onClick=\"top.location.href='/cma_service/?m=eventdetails&event_id=". $id . "';\" class=\"fleft\">" . $company . "</td>\n";
+	echo "\t<td>" . $name . "</td>\n";
 	echo "\t<td>" . $place . "</td>\n";
         echo "\t<td>" . $response . "</td>\n";
         echo "\t<td>" . $manager . "</td>\n";

@@ -22,8 +22,8 @@ $dzial = $_GET["dzial"];
 
 
 
-include 'mysql.php';
-
+//include 'mysql.php';
+include 'pgsql.php';
 
 echo "<html>\n";
 echo "<head>\n";
@@ -272,19 +272,19 @@ $start = ($page - 1) * $perPage;
 
 if ($filter == 1 && $dzial == 1) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 1 && $dzial == 2) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisation` = '2' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' AND localisation = '2' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 1 && $dzial == 3) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisation` = '3' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' AND localisation = '3' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 1 && $dzial == 4) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisation` = '4' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' AND localisation = '4' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 //Koniec wszystkie
 
@@ -292,19 +292,19 @@ $query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisat
 
 } elseif ($filter == 2 && $dzial == 1 ) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '1' AND `deleted` ='0'  ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '1' AND deleted ='0'  ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 2 && $dzial == 2 ) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '1' AND `deleted` ='0' AND `localisation` = '2' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '1' AND deleted ='0' AND localisation = '2' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 2 && $dzial == 3 ) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '1' AND `deleted` ='0' AND `localisation` = '3' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '1' AND deleted ='0' AND localisation = '3' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 2 && $dzial == 4 ) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '1' AND `deleted` ='0' AND `localisation` = '4' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '1' AND deleted ='0' AND localisation = '4' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 //Koniec W magazynie
 
@@ -312,63 +312,66 @@ $query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '1' AND `deleted` =
 
 } elseif ($filter == 3 && $dzial == 1) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '0' AND `deleted` ='0' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '0' AND deleted ='0' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 3 && $dzial == 2) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '0' AND `deleted` ='0' AND `localisation` = '2' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '0' AND deleted ='0' AND localisation = '2' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 3 && $dzial == 3) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '0' AND `deleted` ='0' AND `localisation` = '3' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '0' AND deleted ='0' AND localisation = '3' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 3 && $dzial == 4) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '0' AND `deleted` ='0' AND `localisation` = '4' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '0' AND deleted ='0' AND localisation = '4' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 1 && empty($dzial)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 2 && empty($dzial)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '1' AND `deleted` ='0'  ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '1' AND deleted ='0'  ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($filter == 3 && empty($dzial)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `present` = '0' AND `deleted` ='0' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE present = '0' AND deleted ='0' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($dzial == 1 && empty($filter)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } elseif ($dzial == 2 && empty($filter)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisation` = '2' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' AND localisation = '2' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 
 } elseif ($dzial == 3 && empty($filter)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisation` = '3' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' AND localisation = '3' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 
 } elseif ($dzial == 4 && empty($filter)) {
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` != '1' AND `localisation` = '4' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted != '1' AND localisation = '4' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 } else {
 
 
-$query_sprzet = "SELECT * FROM `warehouse` WHERE `deleted` = '0' ORDER BY `id` ASC LIMIT $start, $perPage";
+$query_sprzet = "SELECT * FROM warehouse WHERE deleted = '0' ORDER BY id ASC LIMIT $perPage OFFSET $start";
 
 }
 
 
 //echo $query_sprzet;
 
-$result_sprzet = mysql_query($query_sprzet);
+//$result_sprzet = mysql_query($query_sprzet);
 
-while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
+$result_sprzet = pg_query($query_sprzet);
+
+
+while ($row_sprzet = pg_fetch_assoc($result_sprzet)) {
 
     $name = $row_sprzet["name"];
     $comment = $row_sprzet["comment"];
@@ -432,10 +435,10 @@ while ($row_sprzet = mysql_fetch_assoc($result_sprzet)) {
     
     echo "<td align=\"right\" valign=\"top\" nowrap>\n";
 
-    $warehouse_query = "SELECT * FROM `warehouses` WHERE `id` = '$localisation'";
-    $warehouse_result = mysql_query($warehouse_query);
+    $warehouse_query = "SELECT * FROM warehouses WHERE id = '$localisation'";
+    $warehouse_result = pg_query($warehouse_query);
     
-    while ($warehouse_row = mysql_fetch_assoc($warehouse_result)) {
+    while ($warehouse_row = pg_fetch_assoc($warehouse_result)) {
     
 	$warehouse_name = $warehouse_row["name"];
 	
